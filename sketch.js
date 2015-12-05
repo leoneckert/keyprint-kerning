@@ -6,7 +6,7 @@ var keyCodeArray = [];
 
 var distortian_factor = 100; //in pixel
 
-var keyprint = "keyprint_data/myCompressedKeyprint_Leon.json";
+var keyprint = "/keyprint_data/myCompressedKeyprint_Leon.json";
 
 
 function setup() {
