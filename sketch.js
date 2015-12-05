@@ -4,10 +4,10 @@ var times = [];
 var txt_to_print = [];
 var keyCodeArray = [];
 
-var distortian_factor = 100; //in pixel
+var distortian_factor = 20; //in pixel
 
-var keyprint = "/keyprint_data/myCompressedKeyprint_Leon.json";
-
+var keyprint = "/keyprint_data/David.json";
+var input_text = "text.txt";
 
 function setup() {
   noCanvas();
@@ -18,7 +18,7 @@ function setup() {
   // loadJSON(keyprint, gotKeyprint);
   //load the text to be written
 
-  loadStrings('text.txt', gotText);
+  loadStrings(input_text, gotText);
   // print (txt);
 
   //create an array that puts all the letters into an array and renames thing like " " to [space]
@@ -152,6 +152,7 @@ function print_final_text() {
 
     var c = map(times[t_count], 0, 1000000000, 0, distortian_factor);
     print(times[t_count]);
+    c *= c;
     b.style("margin-right", c + "px");
     
     if(next_red){
@@ -161,7 +162,7 @@ function print_final_text() {
 
     if (enter_time_for_line_break != 0) {
       var d = map(enter_time_for_line_break, 0, 1000000000, 0, distortian_factor);
-
+      d *= d;
       b.style("margin-left", d + "px");
       enter_time_for_line_break = 0;
     }
