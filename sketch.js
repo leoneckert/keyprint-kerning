@@ -6,8 +6,8 @@ var keyCodeArray = [];
 
 var distortian_factor = 100; //in pixel
 
-// var keyprint = "/keyprint_data/JSONs/Joao.json";
-var keyprint = "/keyprint_data/test.json";
+var keyprint = "/keyprint_data/JSONs/Yuchi.json";
+// var keyprint = "/keyprint_data/test.json";
 var input_text = "text.txt";
 
 function setup() {
