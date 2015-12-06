@@ -4,9 +4,10 @@ var times = [];
 var txt_to_print = [];
 var keyCodeArray = [];
 
-var distortian_factor = 20; //in pixel
+var distortian_factor = 100; //in pixel
 
-var keyprint = "/keyprint_data/David.json";
+// var keyprint = "/keyprint_data/JSONs/Joao.json";
+var keyprint = "/keyprint_data/test.json";
 var input_text = "text.txt";
 
 function setup() {
@@ -148,11 +149,23 @@ function print_final_text() {
     b.parent("output");
     print(a);
     b.style("display", "inline");
+    
+    // here a many options how to map the time on the distance. 
+    // a) increase the effect my multiplying the distance with itself
+    // b) maping the distance startingat a negative number to 
+    // so that, if you were to hit two letters at the same time they would actually 
+    // be on the same spot.
+    
 
-
-    var c = map(times[t_count], 0, 1000000000, 0, distortian_factor);
+    var c = map(times[t_count], 0, 1000000000, -6, distortian_factor);
+    // if there is no data, we leave the distance at default
+    if(times[t_count] == 0){
+      c = 0;
+    }
     print(times[t_count]);
-    c *= c;
+    print(c);
+    // c *= c;
+    print(c);
     b.style("margin-right", c + "px");
     
     if(next_red){
@@ -161,8 +174,12 @@ function print_final_text() {
     }
 
     if (enter_time_for_line_break != 0) {
-      var d = map(enter_time_for_line_break, 0, 1000000000, 0, distortian_factor);
-      d *= d;
+      var d = map(enter_time_for_line_break, 0, 1000000000, -6, distortian_factor);
+      // if there is no data, we leave the distance at default
+      if(enter_time_for_line_break == 0){
+        c = 0;
+      }
+      // d *= d;
       b.style("margin-left", d + "px");
       enter_time_for_line_break = 0;
     }
